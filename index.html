@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Anne Rufino — apresentação profissional voltada ao acompanhamento e apoio cotidiano de pessoas idosas, com respeito, atenção e cuidado humanizado.">
+  <meta name="theme-color" content="#005691">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Anne Rufino | Cuidado e Acompanhamento de Idosos">
+  <meta property="og:description" content="Apoio cotidiano para pessoas idosas, com atenção à rotina, respeito à autonomia e comunicação com a família.">
+  <title>Anne Rufino | Cuidado e Acompanhamento de Idosos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --deep-blue:#005691;
+      --white-bg:#FFFFFF;
+      --dark-text:#2C3E50;
+      --teal-accent:#20B2AA;
+      --orange:#FF8C00;
+      --purple:#8A2BE2;
+      --yellow:#FFD700;
+      --light-gray:#ECF0F1;
+      --muted:#667887;
+      --line:#D8E2E8;
+      --font-mono:"Roboto Mono",monospace;
+      --radius:8px;
+      --shadow:0 2px 12px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--white-bg);color:var(--dark-text);font-family:var(--font-mono);font-size:16px;line-height:1.65}
+    a{color:inherit;text-decoration:none;transition:all .25s ease}
+    button{font:inherit;cursor:pointer;transition:all .25s ease}
+    svg{display:block}
+    .container{width:min(1180px,calc(100% - 48px));margin:0 auto}
+    .mono-label{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--deep-blue);display:flex;align-items:center;gap:10px}
+    .mono-label:before{content:"";display:inline-block;width:25px;height:3px;background:var(--teal-accent)}
+    .topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:-.04em}
+    .brand-symbol{width:42px;height:42px;background:var(--deep-blue);color:white;border-right:3px solid var(--teal-accent);display:grid;place-items:center;transform:rotate(-1deg)}
+    .brand-copy{line-height:1.25;font-size:.95rem}
+    .brand-copy small{display:block;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-top:4px}
+    .nav-links{display:flex;align-items:center;gap:24px;font-size:.78rem;color:#586b78}
+    .nav-links a:hover,.footer-links a:hover{color:var(--teal-accent)}
+    .nav-links a.active{color:var(--deep-blue);font-weight:700}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border:1px solid transparent;border-radius:var(--radius);font-size:.8rem;font-weight:700}
+    .btn-primary{background:var(--deep-blue);color:var(--teal-accent);box-shadow:3px 3px 0 var(--teal-accent)}
+    .btn-primary:hover{background:#004779;transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--teal-accent)}
+    .btn-secondary{background:transparent;border:1.5px solid #9fb1bd;color:var(--deep-blue)}
+    .btn-secondary:hover{background:#eef8f8;border-color:var(--teal-accent)}
+    .menu-toggle{display:none;border:1px solid var(--line);background:#fff;padding:9px;border-radius:8px;color:var(--deep-blue)}
+    .hero{padding:76px 0 80px;position:relative;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:center}
+    h1{font-size:clamp(2.4rem,5vw,4.25rem);line-height:1.13;letter-spacing:-.075em;margin:20px 0 22px;font-weight:700}
+    h1 .accent{color:var(--deep-blue);position:relative}
+    h1 .accent:after{content:"";position:absolute;left:0;right:-3px;bottom:2px;height:9px;background:var(--teal-accent);opacity:.25;z-index:-1;transform:rotate(-1deg)}
+    .hero-copy{color:#607381;font-size:.93rem;max-width:620px}
+    .hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin:28px 0 25px}
+    .hero-meta{display:flex;gap:12px;align-items:center;color:#70818c;font-size:.7rem}
+    .meta-mark{width:32px;height:32px;background:#e5f7f6;border:1px solid #b7e7e3;color:var(--deep-blue);display:grid;place-items:center}
+    .visual{min-height:460px;position:relative;display:grid;place-items:center}
+    .visual-grid{position:absolute;inset:0;background-image:linear-gradient(#dce7ec 1px,transparent 1px),linear-gradient(90deg,#dce7ec 1px,transparent 1px);background-size:24px 24px;mask-image:radial-gradient(circle,black,transparent 73%);opacity:.8}
+    .orbit{position:absolute;width:355px;height:355px;border:1px dashed #b5d7df;border-radius:50%;animation:rotate 34s linear infinite}
+    .orbit:before,.orbit:after{content:"";position:absolute;width:12px;height:12px;background:var(--orange);top:33px;left:42px;transform:rotate(22deg)}
+    .orbit:after{background:var(--purple);left:auto;top:auto;right:16px;bottom:44px}
+    .profile-panel{position:relative;z-index:2;width:min(100%,385px);padding:23px;background:#fff;border:1px solid var(--line);border-right:3px solid var(--teal-accent);box-shadow:0 18px 50px rgba(0,86,145,.10);transform:rotate(1deg)}
+    .panel-head{display:flex;justify-content:space-between;gap:15px;align-items:start;padding-bottom:17px;border-bottom:1px solid var(--line)}
+    .panel-overline{font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;color:#83929b}
+    .panel-head h2{font-size:1.08rem;line-height:1.4;margin:6px 0 0;letter-spacing:-.04em}
+    .status{display:flex;align-items:center;gap:7px;color:#287f7a;font-size:.62rem;white-space:nowrap}
+    .status-dot{width:7px;height:7px;border-radius:50%;background:var(--teal-accent)}
+    .panel-intro{font-size:.72rem;color:#70818c;margin:17px 0}
+    .panel-row{display:grid;grid-template-columns:34px 1fr auto;gap:11px;align-items:center;padding:12px 0;border-bottom:1px solid #edf1f3}
+    .panel-icon{width:32px;height:32px;background:#e8f7f6;color:var(--deep-blue);display:grid;place-items:center}
+    .panel-row:nth-of-type(2) .panel-icon{background:#fff1e2;color:#b86400}
+    .panel-row:nth-of-type(3) .panel-icon{background:#f1e9fb;color:var(--purple)}
+    .panel-row strong{display:block;font-size:.72rem}
+    .panel-row small{display:block;color:#82919a;font-size:.61rem;margin-top:3px}
+    .panel-code{font-size:.6rem;color:#6e818d}
+    .panel-foot{margin-top:17px;padding:12px;background:#f4f8fa;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.65rem}
+    .panel-foot strong{color:var(--deep-blue)}
+    .floating{position:absolute;z-index:3;padding:12px 14px;background:var(--deep-blue);color:#fff;font-size:.66rem;box-shadow:0 10px 25px #00569124}
+    .floating strong{display:block;font-size:.83rem;margin-top:3px}
+    .floating-one{top:36px;right:0;transform:rotate(2deg)}
+    .floating-two{bottom:35px;left:-2px;background:white;color:var(--dark-text);border:1px solid var(--line);border-left:3px solid var(--orange);transform:rotate(-2deg)}
+    .floating-two small{display:block;color:#7b8b95;margin-top:4px}
+    .data-band{background:var(--deep-blue);color:white;padding:25px 0}
+    .data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .data-cell{padding:4px 24px;border-left:1px solid #ffffff38}
+    .data-cell:first-child{border:0;padding-left:0}
+    .data-cell strong{display:block;font-size:.83rem}
+    .data-cell span{display:block;color:#c5dce9;font-size:.68rem;margin-top:5px}
+    section.content-section{padding:clamp(64px,8vw,112px) 0}
+    .section-heading{display:grid;grid-template-columns:1fr .8fr;gap:40px;align-items:end;margin-bottom:40px}
+    h2.section-title{font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.18;letter-spacing:-.07em;margin:14px 0 0}
+    .section-heading p{font-size:.8rem;color:#6d7e89;margin:0;max-width:520px}
+    .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px;align-items:start}
+    .about-visual{background:var(--light-gray);min-height:350px;position:relative;overflow:hidden;padding:25px;border-right:3px solid var(--teal-accent)}
+    .about-visual:before{content:"";position:absolute;width:220px;height:220px;border:1px solid #b8cbd4;transform:rotate(45deg);top:40px;left:calc(50% - 110px)}
+    .about-visual:after{content:"";position:absolute;width:150px;height:150px;border:1px solid var(--teal-accent);transform:rotate(45deg);top:75px;left:calc(50% - 75px)}
+    .about-stamp{position:absolute;z-index:1;inset:0;display:grid;place-content:center;text-align:center;padding:25px}
+    .about-stamp svg{margin:0 auto 18px;color:var(--deep-blue)}
+    .about-stamp strong{font-size:1.15rem;max-width:230px;line-height:1.4}
+    .about-stamp span{font-size:.67rem;color:#6b7d87;margin-top:10px}
+    .about-copy p{font-size:.86rem;color:#607381;margin:0 0 17px}
+    .principles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+    .principle{padding:15px;border:1px solid var(--line);border-left:3px solid var(--teal-accent);font-size:.72rem;background:white}
+    .principle strong{display:block;color:var(--deep-blue);margin-bottom:5px}
+    .principle span{color:#72828c}
+    .competencies{background:#f7f9fa}
+    .competency-layout{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+    .competency-card{background:white;border:1px solid var(--line);padding:25px;position:relative}
+    .competency-card:first-child{transform:translateY(15px)}
+    .competency-card h3{margin:0 0 17px;font-size:1rem}
+    .competency-card p{font-size:.78rem;color:#71818b}
+    .competency-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+    .competency-list li{display:flex;gap:10px;align-items:start;font-size:.75rem;color:#566b78}
+    .check{color:var(--teal-accent);flex:none;margin-top:3px}
+    .skills-note{font-size:.68rem;color:#7d8c95;margin-top:25px;padding:13px 15px;border-left:3px solid var(--orange);background:#fff}
+    .timeline{border-top:1px solid var(--line)}
+    .timeline-row{display:grid;grid-template-columns:130px 1fr;gap:25px;padding:23px 0;border-bottom:1px solid var(--line)}
+    .timeline-date{font-size:.7rem;color:var(--teal-accent);letter-spacing:.04em}
+    .timeline-row h3{font-size:.9rem;margin:0 0 6px}
+    .timeline-row p{font-size:.76rem;color:#71818b;margin:0}
+    .projects-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    .project-card{border:1px solid var(--line);padding:26px;min-height:210px;position:relative;overflow:hidden}
+    .project-card.primary{background:var(--deep-blue);color:white}
+    .project-card.primary p{color:#d3e3ec}
+    .project-card h3{font-size:1rem;margin:18px 0 9px}
+    .project-card p{font-size:.76rem;color:#6c7e89;max-width:470px}
+    .project-index{font-size:.65rem;letter-spacing:.08em;color:var(--teal-accent)}
+    .project-shape{position:absolute;width:110px;height:110px;border:1px solid #ffffff35;right:-18px;bottom:-25px;transform:rotate(35deg)}
+    .project-card:not(.primary) .project-shape{border-color:#c7d9df}
+    .contact{background:#f7f9fa}
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:start}
+    .contact-copy p{color:#6d7e89;font-size:.82rem}
+    .contact-points{display:grid;gap:12px;margin-top:25px}
+    .contact-point{display:flex;align-items:center;gap:12px;font-size:.74rem}
+    .contact-point .icon{width:35px;height:35px;background:#e4f7f5;color:var(--deep-blue);display:grid;place-items:center}
+    form{background:#fff;border:1px solid var(--line);padding:25px;box-shadow:var(--shadow)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .field{display:grid;gap:7px}
+    .field.full{grid-column:1/-1}
+    label{font-size:.69rem;font-weight:600;color:#4e626f}
+    input,select,textarea{width:100%;padding:12px;border:1px solid #cbd8df;border-radius:8px;font: .75rem var(--font-mono);color:var(--dark-text);background:#fff;transition:all .25s ease}
+    input:focus,select:focus,textarea:focus{outline:2px solid var(--teal-accent);outline-offset:2px;border-color:var(--deep-blue)}
+    textarea{min-height:115px;resize:vertical}
+    .form-help{font-size:.62rem;color:#82919a;margin:12px 0}
+    .form-result{display:none;margin-top:14px;padding:12px;background:#e9f8f6;border-left:3px solid var(--teal-accent);font-size:.7rem;color:#315e60}
+    footer{background:#fff;border-top:1px solid var(--line);padding:35px 0 22px}
+    .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:35px;padding-bottom:28px}
+    .footer-about p{font-size:.68rem;color:#71818c;max-width:340px}
+    .footer-title{font-size:.69rem;text-transform:uppercase;letter-spacing:.08em;margin:0 0 13px}
+    .footer-links{display:grid;gap:9px;font-size:.69rem;color:#6b7c87}
+    .social-links{display:flex;gap:9px;margin-top:16px}
+    .social-links a{width:34px;height:34px;border:1px solid var(--line);display:grid;place-items:center;color:var(--deep-blue)}
+    .social-links a:hover{background:var(--deep-blue);color:white;transform:translateY(-2px)}
+    .footer-bottom{border-top:1px solid var(--line);padding-top:17px;display:flex;justify-content:space-between;gap:15px;font-size:.62rem;color:#81909a}
+    .legal-note{margin:20px 0 0;padding:12px 14px;border-left:3px solid var(--orange);background:#f7f9fa;font-size:.65rem;color:#758590}
+    .toast{position:fixed;right:22px;bottom:22px;z-index:500;background:var(--dark-text);color:white;padding:13px 16px;font-size:.72rem;box-shadow:var(--shadow);max-width:min(360px,calc(100% - 44px));opacity:0;transform:translateY(12px);pointer-events:none;transition:all .25s ease}
+    .toast.show{opacity:1;transform:translateY(0)}
+    @keyframes rotate{to{transform:rotate(360deg)}}
+    @keyframes enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .animate-in{animation:enter .42s ease-out both}
+    @media(max-width:900px){
+      .nav-links{gap:13px}.nav-links .btn{padding:10px 12px;font-size:.68rem}
+      .hero-grid{gap:25px}.orbit{width:300px;height:300px}.visual{min-height:420px}
+      .about-grid{gap:30px}.contact-grid{gap:30px}
+    }
+    @media(max-width:767px){
+      .container{width:calc(100% - 32px)}
+      .nav{height:68px}.menu-toggle{display:grid;place-items:center}
+      .nav-links{display:none;position:absolute;left:0;right:0;top:68px;padding:18px 20px 22px;background:white;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch}
+      .nav-links.open{display:flex}.nav-links a{padding:7px 0}.nav-links .btn{width:100%;padding:12px}
+      .nav>.nav-cta{display:none}
+      .hero{padding:50px 0 45px}.hero-grid{grid-template-columns:1fr;gap:15px}
+      h1{font-size:clamp(2.2rem,11vw,3.35rem)}
+      .hero-copy{font-size:.82rem}.hero-actions .btn{flex:1}
+      .visual{min-height:405px;margin-top:8px}.orbit{width:285px;height:285px}
+      .profile-panel{width:min(100%,360px);padding:19px}.floating-one{right:0;top:13px}.floating-two{left:0;bottom:15px}
+      .data-grid{grid-template-columns:1fr;gap:0}.data-cell,.data-cell:first-child{padding:13px 0;border-left:0;border-top:1px solid #ffffff38}.data-cell:first-child{border-top:0}
+      .section-heading{grid-template-columns:1fr;gap:16px}.section-heading p{font-size:.75rem}
+      .about-grid,.competency-layout,.projects-grid,.contact-grid{grid-template-columns:1fr;gap:22px}
+      .about-visual{min-height:280px}.competency-card:first-child{transform:none}
+      .principles{grid-template-columns:1fr 1fr}
+      .timeline-row{grid-template-columns:85px 1fr;gap:15px}
+      .footer-top{grid-template-columns:1fr 1fr;gap:25px 18px}.footer-about{grid-column:1/-1}
+      .footer-bottom{flex-direction:column}
+    }
+    @media(max-width:440px){
+      .brand-copy{font-size:.78rem}.brand-copy small{font-size:.55rem}
+      .hero-actions{flex-direction:column}.hero-actions .btn{width:100%}
+      .principles,.form-grid{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
+      .panel-row{grid-template-columns:32px 1fr auto;gap:8px}
+      .panel-code{font-size:.55rem}
+      .footer-top{grid-template-columns:1fr}.footer-about{grid-column:auto}
+      .floating{font-size:.59rem}.floating strong{font-size:.72rem}
+    }
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="container nav" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="Anne Rufino, início">
+        <span class="brand-symbol" aria-hidden="true">
+          <svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7.5-4.5-7.5-10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10C19.5 15.5 12 20 12 20Z" stroke="currentColor" stroke-width="1.7"/><path d="M7.5 13.2c2.2-.2 3.6-1.3 4.5-3.2 1 2 2.4 3 4.5 3.2" stroke="#20B2AA" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </span>
+        <span class="brand-copy">Anne Rufino<small>Cuidado e acompanhamento</small></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#sobre">Sobre mim</a>
+        <a href="#competencias">Competências</a>
+        <a href="#formacao">Formação</a>
+        <a href="#projetos">Projeto profissional</a>
+        <a class="btn btn-primary" href="#contato">Entrar em contato <span aria-hidden="true">↗</span></a>
+      </div>
+      <a class="btn btn-primary nav-cta" href="#contato">Vamos conversar <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="animate-in">
+          <span class="mono-label">Apresentação profissional · 2026</span>
+          <h1>Cuidado com respeito. <span class="accent">Presença que acolhe.</span></h1>
+          <p class="hero-copy">Sou Anne Rufino, com formação em Técnica de Enfermagem e interesse profissional em acompanhamento e apoio cotidiano para pessoas idosas. Meu propósito é contribuir para uma rotina mais organizada, respeitosa e acolhedora, sempre considerando as necessidades de cada pessoa e de sua família.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contato">Conversar sobre atendimento <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="#sobre">Conhecer minha trajetória <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-meta">
+            <span class="meta-mark" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 19 11c0 5.7-7 10-7 10Z" stroke="currentColor" stroke-width="1.6"/><path d="M8 13h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <span>Respeito à autonomia · Escuta · Cuidado humanizado</span>
+          </div>
+        </div>
+        <div class="visual" aria-label="Ilustração geométrica sobre cuidado e organização da rotina">
+          <div class="visual-grid"></div><div class="orbit"></div>
+          <div class="floating floating-one"><span>PRINCÍPIO</span><strong>Cada pessoa importa</strong></div>
+          <article class="profile-panel">
+            <div class="panel-head">
+              <div><div class="panel-overline">Meu foco profissional</div><h2>Apoio à rotina<br>de pessoas idosas</h2></div>
+              <span class="status"><i class="status-dot"></i> PROPÓSITO</span>
+            </div>
+            <p class="panel-intro">Pontos importantes para organizar um acompanhamento respeitoso:</p>
+            <div class="panel-row">
+              <span class="panel-icon" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 19 11c0 5.7-7 10-7 10Z" stroke="currentColor" stroke-width="1.7"/><path d="M8 13h8" stroke="currentColor" stroke-width="1.7"/></svg></span>
+              <span><strong>Respeito e dignidade</strong><small>Considerar preferências e autonomia</small></span><span class="panel-code">01</span>
+            </div>
+            <div class="panel-row">
+              <span class="panel-icon" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+              <span><strong>Rotina combinada</strong><small>Alinhar horários e necessidades</small></span><span class="panel-code">02</span>
+            </div>
+            <div class="panel-row">
+              <span class="panel-icon" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v12H8l-4 3V5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+              <span><strong>Diálogo com a família</strong><small>Combinados claros e comunicação</small></span><span class="panel-code">03</span>
+            </div>
+            <div class="panel-foot"><span>Abordagem</span><strong>Humana e individualizada</strong></div>
+          </article>
+          <div class="floating floating-two"><span>VALOR ESSENCIAL</span><strong>Ouvir antes de cuidar</strong><small>O atendimento começa pelo diálogo.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="data-band">
+      <div class="container data-grid">
+        <div class="data-cell"><strong>01 / Dignidade</strong><span>Respeitar a história e as escolhas da pessoa idosa.</span></div>
+        <div class="data-cell"><strong>02 / Organização</strong><span>Definir tarefas, horários e expectativas com clareza.</span></div>
+        <div class="data-cell"><strong>03 / Responsabilidade</strong><span>Atuar dentro da formação, habilitação e limites do serviço.</span></div>
+      </div>
+    </div>
+
+    <section class="content-section" id="sobre">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <div class="about-stamp">
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7.5-4.5-7.5-10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10C19.5 15.5 12 20 12 20Z" stroke="currentColor" stroke-width="1.5"/><path d="M7.5 13.2c2.2-.2 3.6-1.3 4.5-3.2 1 2 2.4 3 4.5 3.2" stroke="#20B2AA" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <strong>Anne Rufino</strong>
+            <span>Formação em Técnica de Enfermagem</span>
+          </div>
+        </div>
+        <div class="about-copy">
+          <span class="mono-label">Sobre mim</span>
+          <h2 class="section-title">Cuidado começa com atenção à pessoa.</h2>
+          <p>Minha formação em Técnica de Enfermagem faz parte da minha trajetória e do meu interesse pela área de cuidado. Neste momento, estou estruturando meu projeto profissional com foco no acompanhamento e no apoio cotidiano de pessoas idosas.</p>
+          <p>Acredito que o cuidado deve respeitar a individualidade, a autonomia e a dignidade de cada pessoa. Por isso, considero essencial conversar com a família, entender a rotina e definir com clareza o escopo do atendimento antes de iniciar qualquer serviço.</p>
+          <div class="principles">
+            <div class="principle"><strong>Escuta respeitosa</strong><span>Entender preferências e necessidades.</span></div>
+            <div class="principle"><strong>Comunicação clara</strong><span>Alinhar expectativas e combinados.</span></div>
+            <div class="principle"><strong>Respeito à autonomia</strong><span>Valorizar a participação da pessoa idosa.</span></div>
+            <div class="principle"><strong>Responsabilidade</strong><span>Respeitar limites legais e profissionais.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section competencies" id="competencias">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="mono-label">Competências e foco</span><h2 class="section-title">Uma abordagem atenta, organizada e humana.</h2></div>
+          <p>As áreas abaixo representam o foco de atuação pretendido para o projeto profissional. Não substituem habilitação, registro ativo ou autorizações exigidas para serviços regulamentados.</p>
+        </div>
+        <div class="competency-layout">
+          <article class="competency-card">
+            <h3>Foco de acompanhamento</h3>
+            <ul class="competency-list">
+              <li><svg class="check" width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Companhia e apoio na rotina cotidiana.</span></li>
+              <li><svg class="check" width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Acompanhamento em consultas e compromissos, conforme combinado.</span></li>
+              <li><svg class="check" width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Comunicação com familiares sobre os combinados do serviço.</span></li>
+              <li><svg class="check" width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Respeito à privacidade, autonomia e preferências da pessoa idosa.</span></li>
+            </ul>
+          </article>
+          <article class="competency-card">
+            <h3>Princípios de trabalho</h3>
+            <ul class="competency-list">
+              <li><svg class="check" width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Combinar horários, atividades e limites com antecedência.</span></li>
+              <li><svg class="check" width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Entender as necessidades antes de apresentar uma proposta.</span></li>
+              <li><svg class="check" width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Manter comunicação transparente com a família.</span></li>
+              <li><svg class="check" width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Reconhecer quando a necessidade exige profissional ou serviço de saúde específico.</span></li>
+            </ul>
+          </article>
+        </div>
+        <div class="skills-note">Nota profissional: a formação em Técnica de Enfermagem não deve ser apresentada como registro profissional ativo. A situação no COREN precisa ser verificada antes de divulgar ou prestar serviços próprios da profissão.</div>
+      </div>
+    </section>
+
+    <section class="content-section" id="formacao">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="mono-label">Formação</span><h2 class="section-title">Conhecimento como parte da trajetória.</h2></div>
+          <p>As informações apresentadas nesta página se limitam ao que foi informado até aqui. Detalhes institucionais e registros poderão ser acrescentados quando confirmados.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-row">
+            <div class="timeline-date">FORMAÇÃO</div>
+            <div><h3>Técnica de Enfermagem</h3><p>Formação informada por Anne Rufino. Instituição, ano de conclusão e situação do registro profissional não foram especificados.</p></div>
+          </article>
+          <article class="timeline-row">
+            <div class="timeline-date">REGISTRO</div>
+            <div><h3>Verificação profissional pendente</h3><p>O registro no COREN-SP ainda precisa ser verificado. Esta página não afirma que há inscrição ativa.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="projetos">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="mono-label">Projeto profissional</span><h2 class="section-title">Construindo uma proposta de cuidado para idosos.</h2></div>
+          <p>O objetivo é estruturar um serviço de acompanhamento cotidiano com comunicação clara e atenção às necessidades de cada família.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card primary">
+            <span class="project-index">PROJETO 01 / EM ESTRUTURAÇÃO</span>
+            <h3>Acompanhamento e apoio cotidiano</h3>
+            <p>Planejamento de um serviço voltado à companhia, à organização da rotina e ao acompanhamento de pessoas idosas, com definição prévia do escopo e das condições de atendimento.</p>
+            <div class="project-shape" aria-hidden="true"></div>
+          </article>
+          <article class="project-card">
+            <span class="project-index">PRÓXIMAS ETAPAS</span>
+            <h3>Formalização responsável</h3>
+            <p>Definir serviços, verificar exigências profissionais e sanitárias, avaliar o enquadramento empresarial e preparar os canais de atendimento.</p>
+            <div class="project-shape" aria-hidden="true"></div>
+          </article>
+        </div>
+        <p class="legal-note">Não foram fornecidas experiências profissionais, empregadores, datas de atuação ou projetos anteriores. Por isso, esta página não inventa histórico de emprego nem depoimentos.</p>
+      </div>
+    </section>
+
+    <section class="content-section contact" id="contato">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="mono-label">Contato</span>
+          <h2 class="section-title">Vamos conversar sobre a rotina da sua família?</h2>
+          <p>Use o formulário para organizar uma primeira mensagem sobre o tipo de acompanhamento que procura. Você poderá revisar o texto antes de enviá-lo.</p>
+          <div class="contact-points">
+            <div class="contact-point"><span class="icon" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v12H8l-4 3V5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span>Conversa inicial sem compromisso</span></div>
+            <div class="contact-point"><span class="icon" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span>Horários e tarefas definidos com clareza</span></div>
+            <div class="contact-point"><span class="icon" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 19 11c0 5.7-7 10-7 10Z" stroke="currentColor" stroke-width="1.7"/></svg></span><span>Respeito à pessoa idosa e à sua família</span></div>
+          </div>
+        </div>
+        <form id="contactForm">
+          <div class="form-grid">
+            <div class="field"><label for="name">Seu nome</label><input id="name" name="name" autocomplete="name" required placeholder="Como podemos chamar você?"></div>
+            <div class="field"><label for="phone">Telefone (opcional)</label><input id="phone" name="phone" autocomplete="tel" placeholder="(11) 99999-9999"></div>
+            <div class="field full"><label for="service">Tipo de acompanhamento</label><select id="service" name="service" required><option value="">Selecione uma opção</option><option>Companhia e rotina diária</option><option>Acompanhamento em consultas</option><option>Apoio na organização da rotina</option><option>Quero entender as opções</option></select></div>
+            <div class="field full"><label for="message">Conte um pouco sobre a necessidade</label><textarea id="message" name="message" required placeholder="Informe a região, os dias ou horários desejados e o tipo de apoio procurado. Evite incluir dados médicos sensíveis neste formulário."></textarea></div>
+            <div class="field full"><button class="btn btn-primary" type="submit">Preparar mensagem <span aria-hidden="true">↗</span></button></div>
+          </div>
+          <p class="form-help">Este formulário prepara uma mensagem no seu dispositivo; não envia dados para um servidor. Revise o conteúdo antes de compartilhar.</p>
+          <div class="form-result" id="formResult" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-about">
+          <a class="brand" href="#inicio"><span class="brand-symbol" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7.5-4.5-7.5-10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10C19.5 15.5 12 20 12 20Z" stroke="currentColor" stroke-width="1.7"/><path d="M7.5 13.2c2.2-.2 3.6-1.3 4.5-3.2 1 2 2.4 3 4.5 3.2" stroke="#20B2AA" stroke-width="1.7" stroke-linecap="round"/></svg></span><span class="brand-copy">Anne Rufino<small>Cuidado e acompanhamento</small></span></a>
+          <p>Apresentação profissional voltada ao acompanhamento e ao apoio cotidiano de pessoas idosas, com respeito e atenção à rotina.</p>
+          <div class="social-links">
+            <a href="#contato" aria-label="Instagram — adicione o link do perfil" title="Adicionar Instagram oficial"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="#contato" aria-label="LinkedIn — adicione o link do perfil" title="Adicionar LinkedIn oficial"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9v10M5 5.5v.1M10 19v-6a4 4 0 0 1 8 0v6M10 9v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="5" cy="5" r="1" stroke="currentColor" stroke-width="1.7"/></svg></a>
+            <a href="#contato" aria-label="Contato — adicione e-mail ou WhatsApp" title="Adicionar canal de contato"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7"/></svg></a>
+          </div>
+        </div>
+        <div><h3 class="footer-title">Navegação</h3><div class="footer-links"><a href="#sobre">Sobre mim</a><a href="#competencias">Competências</a><a href="#formacao">Formação</a><a href="#projetos">Projeto profissional</a></div></div>
+        <div><h3 class="footer-title">Informações</h3><div class="footer-links"><a href="#privacidade" id="privacyLink">Privacidade</a><a href="#termos" id="termsLink">Termos de uso</a><a href="#contato">Contato</a><a href="#inicio">Voltar ao início ↑</a></div></div>
+      </div>
+      <p class="legal-note">Antes de publicar, acrescente seus contatos e links reais, a região de atendimento e, se pertinente, instituição e ano de formação. Confirme seu registro profissional e as exigências legais antes de divulgar ou prestar serviços regulamentados. Política de privacidade e termos devem ser revisados para o uso real do site.</p>
+      <div class="footer-bottom"><span>© 2026 Anne Rufino. Conteúdo profissional.</span><span>Construtivismo de Dados Dinâmicos · <a href="#inicio">Início ↑</a></span></div>
+    </div>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    const toast = document.getElementById('toast');
+    let toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 3600);
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const name = form.elements.name.value.trim();
+      const phone = form.elements.phone.value.trim();
+      const service = form.elements.service.value;
+      const message = form.elements.message.value.trim();
+      const text = `Olá, Anne! Meu nome é ${name}.\nTipo de acompanhamento: ${service}.\nTelefone: ${phone || 'Não informado'}.\nNecessidade: ${message}`;
+      const result = document.getElementById('formResult');
+      result.style.display = 'block';
+      result.textContent = 'Mensagem preparada. Você pode copiá-la para enviar pelo canal de contato que combinar com Anne.';
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => showToast('Mensagem copiada. Agora você pode colar no canal de contato escolhido.')).catch(() => showToast('Mensagem preparada. Selecione e copie o texto abaixo.'));
+      } else {
+        const temporary = document.createElement('textarea');
+        temporary.value = text;
+        temporary.setAttribute('readonly', '');
+        temporary.style.position = 'absolute';
+        temporary.style.left = '-9999px';
+        document.body.appendChild(temporary);
+        temporary.select();
+        try { document.execCommand('copy'); showToast('Mensagem copiada. Agora você pode colar no canal de contato escolhido.'); }
+        catch (error) { showToast('Mensagem preparada. A cópia automática não está disponível neste navegador.'); }
+        temporary.remove();
+      }
+      result.textContent = text;
+    });
+
+    document.getElementById('privacyLink').addEventListener('click', event => {
+      event.preventDefault();
+      showToast('Antes da publicação, crie uma política de privacidade adequada aos dados realmente coletados pelo site.');
+    });
+    document.getElementById('termsLink').addEventListener('click', event => {
+      event.preventDefault();
+      showToast('Antes da publicação, acrescente termos de uso revisados para o funcionamento real do site.');
+    });
+
+    const sectionLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const sections = [...document.querySelectorAll('main section[id]')];
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            sectionLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+          }
+        });
+      }, { rootMargin: '-35% 0px -55% 0px' });
+      sections.forEach(section => observer.observe(section));
+    }
+  </script>
+</body>
+</html>
